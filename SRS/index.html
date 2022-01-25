@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>System Requirement Specification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body style="background-color:#FFFFFF; color:black;" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+    <nav class="navbar justify-content-end navbar-expand-sm p-100" style="background-color: #aebef3">
+
+        <!-- logo -->
+
+        <img src="css/logo.png" alt="Logo UI" width="8%"></img>
+
+        <!-- Dropdown List Start-->
+
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-sm-2 col-4" style="background-color: #aebef3" id="myScrollspy">
+                <div class="nav nav-pills flex-column">
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            1. Introduction
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#pos1.1">1.1 Purpose</a>
+                            <a class="dropdown-item" href="#pos1.2">1.2 Document Convention</a>
+                            <a class="dropdown-item" href="#pos1.3">1.3 Intended Audience and Reading Suggestions</a>
+                            <a class="dropdown-item" href="#pos1.4">1.4 Product Scope</a>
+                            <a class="dropdown-item" href="#pos1.5">1.5 References</a>
+
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            2. Overall Description
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#pos2.1">2.1 Product Perspective</a>
+                            <a class="dropdown-item" href="#pos2.2">2.2 Product Functions</a>
+                            <a class="dropdown-item" href="#pos2.3">2.3 User Classes and Characteristics</a>
+                            <a class="dropdown-item" href="#pos2.4">2.4 Operating Environment</a>
+                            <a class="dropdown-item" href="#pos2.5">2.5 Design and Implementation Constraints</a>
+                            <a class="dropdown-item" href="#pos2.6">2.6 User Documentation</a>
+                            <a class="dropdown-item" href="#pos2.7">2.7 Assumptions and Dependencies</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle text-left" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">3. External
+                            Interface and<br>Requirements
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#pos3.1">3.1 User Interfaces</a>
+                            <a class="dropdown-item" href="#pos3.2">3.2 Hardware Interfaces</a>
+                            <a class="dropdown-item" href="#pos3.3">3.3 Software Interfaces</a>
+                            <a class="dropdown-item" href="#pos3.4">3.4 Communications Interfaces</a>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            4. System Features
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#pos4.1">4.1 Register</a>
+                            <a class="dropdown-item" href="#pos4.2">4.2 Login</a>
+                            <a class="dropdown-item" href="#pos4.3">4.3 Create Custom Cluster</a>
+                            <a class="dropdown-item" href="#pos4.4">4.4 Voice to Text</a>
+                            <a class="dropdown-item" href="#pos4.5">4.5 Search File</a>
+                            <a class="dropdown-item" href="#pos4.6">4.6 Download Result</a>
+                            <a class="dropdown-item" href="#pos4.7">4.7 Logout</a>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="dropdown">
+                        <button class="btn  dropdown-toggle text-left" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a>5. Other
+                                Nonfunctional<br>Requirements</a>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#pos5.1">5.1 Performance Requirements</a>
+                            <a class="dropdown-item" href="#pos5.2">5.2 Safety Requirements</a>
+                            <a class="dropdown-item" href="#pos5.3">5.3 Security Requirements</a>
+                            <a class="dropdown-item" href="#pos5.4">5.4 Software Quality Attributes</a>
+                            <a class="dropdown-item" href="#pos5.5">5.5 Business Rules</a>
+
+                        </div>
+                    </div>
+
+                    <br>
+                    <a href="#pos6.1">
+                        <button class="btn " type="button" aria-haspopup="true" aria-expanded="false">6. Appendix
+                        </button></a>
+
+                </div>
+            </nav>
+
+            <!--Dropdown List End-->
+
+
+            <!--Cover Page Start -->
+
+            <div style=" padding-top:30px;padding-left:20px; padding-right:50px;" class="col-sm-10 col-8">
+                <div class="a  text-center">
+                    <h1 class="a">Software Requirements</h1>
+                    <h1>Specification</h1><br />
+                    <h2>for</h2><br />
+                    <h1 style="font-family: 'Fredoka One', cursive;">File Book</h1> <br />
+                    <p>Version v1.0</p>
+                    <p>Group:11</p>
+                    <p>Date Created: 16-November-2021</p> <br />
+                    <p>Prepared By: </p>
+                    <p><b><u>Team Members</u></b></p1><br />
+                        <p1>1. Tawsif Mahmud - 1912411042</p1><br />
+                        <p1>2. Jiaul Haque Saboj - 1912065642</p1><br />
+                        <p1>3. Sadia Sifati Shammee - 1912304642</p1><br />
+                </div>
+
+                <!--Cover Page End-->
+
+                <!-- Introduction Starts -->
+
+                <div>
+
+                    <h2 style="color:#10415e;">1. Introduction</h2>
+                    <h4 id="pos1.1" style="color: black;">1.1 Purpose</h4>
+                    <p>
+                        The Purpose of Software Requirements Specification (SRS) is to describe the specification and
+                        description of our project "File Book". This SRS demonstrates the system's primary uses and
+                        required
+                        functionality that's why clients and other developers can easily understand what we did and how
+                        to
+                        change anything if necessary.
+                    </p>
+                    <h4 id="pos1.2" style="color: black;">1.2 Document Convention</h4>
+                    <p>
+                        <b style="color:black;">Main Titles:</b> Font: Calibri, Size: 18 , Face: Bold <br>
+                        <b style="color:black;">Sub Section Titles:</b> Font: Calibri, Size: 14 , Face: Bold <br>
+                        <b style="color:black;">Other description:</b> Font: Calibri, Size: 12 , Face: Normal
+
+                    </p>
+                    <h4 id="pos1.3" style="color: black;">1.3 Intended Audience and Reading Suggestions</h4>
+                    <p>
+                        Clients, developers, and project managers will evaluate the project are the intended audience
+                        for
+                        this document. As a result, this SRS was written in plain English with little to no technical
+                        terminology that's why anybody interested in this project could easily read it. This document
+                        describes who this application is intended for, how and where it will be used, and what it can
+                        do.
+                        It is recommended that the SRS be read in the order indicated by the index.
+                    </p>
+                    <h4 id="pos1.4" style="color: black;">1.4 Product Scope</h4>
+                    <p>
+                        The goal of this software is to make smartphones and the internet more accessible for searching
+                        any format of file locations with desired keyword. The purpose of the application is to easily
+                        bring the file location like
+                        pdf ,doc and etc. from the given URLS in customized cluster. There is currently no such
+                        application on the market
+                        for competition. The product will be very much beneficial for reaserchers and students who are
+                        willing to get some article from any url for their education and research purpose.
+                    </p>
+                    <h4 id="pos1.5" style="color: black;">1.5 References</h4>
+                    <a style="color:black;" href="https://docs.djangoproject.com/en/3.1/"><b>Python Django
+                            Framework</b></a><br>
+                    <a style="color:black;"
+                        href=https://developer.android.com/reference/android/speech/SpeechRecognizer><b>Speech
+                            Recognition
+                            API</b></a><br>
+                    <a style="color:black;" href="https://www.django-rest-framework.org/"><b>Django Rest
+                            Framework</b></a><br>
+                    <a style="color:black;" href="https://developer.android.com/docs"><b>Android</b></a><br>
+                    <a style="color:black;" href="https://sqlite.org/docs.html"><b>SQLite</b></a><br>
+                    <br>
+
+                </div>
+
+                <!-- Introduction Ends -->
+
+                <br>
+
+                <!-- Overall Description Starts -->
+
+                <div>
+
+                    <h2 style="color:#10415e;">2. Overall Description</h2>
+                    <p>This part provides a comprehensive overview of the product "File-Book" as well as an explanation
+                        of the
+                        software's features
+                        and goals. It also includes information about the product's dependencies, limitations, operating
+                        environment, user classes, and user manuals.</p>
+                    <h4 id="pos2.1" style="color: black;">2.1 Product Perspective</h4>
+                    <p>"File Book" is the smart platform for searching any files location of any particular format
+                        from specific websites. It allows us to scrape files of various formats and search on them.
+                        After showing the search result, people can download the informations of the files. With this,
+                        people can easily access their desired files from the web and the app would be the new smart
+                        medium for this. This software
+                        will be available on both the web
+                        and the android platform.</p>
+
+                    <h4 id="pos2.2" style="color:black;">2.2 Product Functions</h4>
+                    <p>The user determines how the product works. The goal of this software is to make it easy for users
+                        to search their files location with desired keyword. </p>
+
+                    <h4 id="pos2.3" style="color:black;">2.3 User Classes and Characteristics</h4>
+                    <p>The user will be the primary emphasis of the Android app and web, and users will be able to use
+                        the
+                        app having to sign in. Users will
+                        be able to search for their preferred file using the voice search command. After that, they will
+                        be
+                        able to download the list of file information.</p>
+
+                    <h4 id="pos2.4" style="color: black;">2.4 Operating Environments</h4>
+                    <p> The operating environment of "File Book" is listed as follows:
+
+                    <ul>
+                        <li> Distributed Database </li>
+                        <li> Client/Server System </li>
+                        <li> Operating System: any system that supports a modern web browser, android version 5.0+ </li>
+                        <li> Database Configuration: Django and SQLite </li>
+                        <li> Platform: Web and Android </li>
+                    </ul>
+                    <h4 id="pos2.5" style="color: black;">2.5 Design and Implementation Constraints</h4>
+                    <p>Currently, the mobile application of the product is only available for android users. To save the
+                        files that are scraped
+                        from the targeted websites and to save the scraped file in a API so that it can be
+                        retrieved and shown in the app and on the web later.</p>
+                    <h4 id="pos2.6" style="color: black;">2.6 User Documentation</h4>
+                    <p>The product will give users with basic running instructions. Also, a short tutorial video that
+                        shows
+                        how to use the software.</p>
+                    <h4 id="pos2.7" style="color: black;">2.7 Assumptions and Dependencies</h4>
+                    <p>The system requires a smartphone running Android 5.0 Lollipop or above with a microphone to
+                        listen to
+                        the user's voice search command.
+                        In order to  get search results from the server, the user must also have an internet connection.
+                        We
+                        used Google's Voice to Text API for
+                        our speech recognition algorithm. Users are expected to just utilize Google as a social media
+                        sign-in platform. </p>
+                    <br>
+
+                </div>
+
+                <!-- Overall Description Ends -->
+
+                <br>
+
+                <!-- External Interface And Requirements Starts -->
+
+                <div>
+                    <h2 style="color:#10415e;">3. External Interface And Requirements</h2>
+                    <h4 id="pos3.1" style="color:black;">3.1 User Interfaces</h4>
+                    <p>When the user uses the service for the first time, they can use their
+                        Google account to sign in. If
+                        the user is already logged into the system, they will land on the home page.</p>
+                    <h4 id="pos3.2" style="color:black;">3.2 Hardware Interfaces</h4>
+                    <p>Apart from a microphone, the "File Book" software does not require any more hardware.</p>
+                    <h4 id="pos3.3" style="color:black; ">3.3 Software Interfaces</h4>
+                    <p>The database will be accessed over the internet by both the mobile application and the website.
+                        Such interfaces will be provided by the operating system. Both systems will have functions for
+                        reading and writing data.</p>
+                    <h4 id="pos3.4" style="color:black;">3.4 Communications Interfaces</h4>
+                    <p>The app will send audio to Google's Could server for analysis and will get text data from the
+                        audio. All of this takes place over HTTP queries, with
+                        Google's technology encrypting the audio and data sent.</p>
+                    <br>
+                </div>
+
+                <!-- External Interface And Requirements Ends -->
+
+                <br>
+
+                <!-- System Feature Starts -->
+
+                <div>
+
+                    <h2 style="color:#10415e;">4. System Features</h2>
+                    <p>The system features stated below are the core building blocks for the "File Book" application.
+                        However, these
+                        are not the only features that the application consists of. Other small but crucial features
+                        such as using
+                        third party authentication for login are omitted from this section due to its trivial nature</p>
+                    <div class="d-flex justify-content-center"><img src="photo/usecase.png" alt="UserCase"
+                            style="width:50%;">
+                    </div>
+
+                    <p style="font-size:90%"><i>
+                            <center>Figure: User and the Use-cases
+                        </i></center>
+                    </p>
+
+                    <!-- Register feature -->
+
+                    <h4 id="pos4.1">4.1 Register</h4>
+
+                    <strong>Stimulus/ Response Sequences</strong>
+                    <p>The following expanded use case shows the response sequences between the actor actions and the
+                        system
+                        responses.
+                        <li>Use Case Name: Register</li>
+                        <li>Actor: User</li>
+                        <li>Goal: Register a User</li>
+                        <li>Overview: A user has to register as a user to use the services.</li>
+                    </p>
+
+                    Typical Course of Actions:
+
+                    <img src="photo/register_feature.png" style="width:95%"> <!-- Table 1.0 -->
+                    <p style="font-size:90%"><i>Table 1.0 : Typical Course of Events </i></p>
+
+                    <p>Alternate Course of Actions:<br>**Refers to Table 1.0
+                    <p>Exception: <br>
+                        1) Server is down so form did not reach to database server <br>
+                    </p>
+
+                    <!-- Login feature -->
+
+                    <h4 id="pos4.2">4.2 Login</h4>
+
+
+                    <strong>Stimulus/ Response Sequences</strong>
+                    <p>The following expanded use case shows the response sequences between the actor actions and the
+                        system
+                        responses.
+                        <li>Use Case Name: Login</li>
+                        <li>Actor: User</li>
+                        <li>Goal: Login to system</li>
+                        <li>Overview: Allows user to log in to the app / website to access users cluster for searching
+                        </li>
+                    </p>
+
+                    Typical Course of Actions:
+
+                    <img src="photo/login_feature.png" style="width:95%"> <!-- Table 2.0 -->
+                    <p style="font-size:90%"><i>Table 2.0 : Typical Course of Events </i></p>
+
+                    <p>Alternate Course of Actions:<br>**Refers to Table 2.0
+                    <p>
+                        Exception:<br>
+                        1) Server is down so form did not reach to database server<br>
+                    </p>
+
+                    <!-- Create Custom Cluster -->
+
+                    <h4 id="pos4.3">4.3 Creating Custom Cluster</h4>
+
+
+                    <strong>Stimulus/ Response Sequences</strong>
+                    <p>The following expanded use case shows the response sequences between the actor actions and the
+                        system
+                        responses.
+                        <li>Use Case Name: Login</li>
+                        <li>Actor: User</li>
+                        <li>Goal: User will create a custom cluster for searching</li>
+                        <li>Overview: Allows user to create his/her own custom searching environment
+                        </li>
+                    </p>
+
+                    Typical Course of Actions:
+
+                    <img src="photo/cluster setup_feature.png" style="width:95%"> <!-- Table 3.0 -->
+                    <p style="font-size:90%"><i>Table 3.0 : Typical Course of Events </i></p>
+
+                    <p>Alternate Course of Actions:<br>**Refers to Table 2.0
+                    <p>
+                        Exception:<br>
+                        1) The user will unformatted information<br>
+                        2) Server is down so form did not reach to database server
+                    </p>
+
+                    <!-- Voice to Text  -->
+
+                    <h4 id="pos4.4">4.4 Voice to Text</h4>
+
+                    <strong>Stimulus/ Response Sequences</strong>
+                    <p>The following expanded use case shows the response sequences between the actor actions and the
+                        system
+                        responses.
+                        <li>Use Case Name: Voice to Text</li>
+                        <li>Actor: User</li>
+                        <li>Goal: Turning keyword from voice to Text</li>
+                        <li>Overview: User dont have to type their keyword.Reduce type complexity with voice to Text
+                            service. </li>
+                    </p>
+
+                    Typical Course of Actions:
+                    <img src="photo/voicetotext_feature.png" style="width:95%"> <!-- Table 4.0 -->
+                    <p style="font-size:90%"><i>Table 4.0 : Typical Course of Events </i></p>
+
+                    <p>
+                        Exception: <br>
+                        1) User is not connected to the internet so system won’t be able to connect to the API <br>
+                        2) User is not speaking English which our targeted API won’t recognize <br>
+                        3) User is not speaking clearly will not give any text
+
+
+                    </p>
+
+                    <!-- search file  -->
+
+                    <h4 id="pos4.5">4.5 Search File</h4>
+
+                    <strong>Stimulus/ Response Sequences</strong>
+                    <p>The following expanded use case shows the response sequences between the actor actions and the
+                        system
+                        responses.
+                        <li>Use Case Name: Search File</li>
+                        <li>Actor: User</li>
+                        <li>Goal: Search for files</li>
+                        <li>Overview: After typing keyword or using voice to Text, user will search for files containing
+                            the keyword</li>
+                    </p>
+
+                    Typical Course of Actions:
+                    <img src="photo/searchfile.png" style="width:95%"> <!-- Table 5.0 -->
+                    <p style="font-size:90%"><i>Table 5.0 : Typical Course of Events </i></p>
+
+                    <p>
+                        Exception: <br>
+                        1) User is not connected to the internet so system won’t be able to get the result <br>
+
+
+                    </p>
+
+                    <!-- Download result  -->
+
+                    <h4 id="pos4.6">4.6 Download Result</h4>
+
+                    <strong>Stimulus/ Response Sequences</strong>
+                    <p>The following expanded use case shows the response sequences between the actor actions and the
+                        system
+                        responses.
+                        <li>Use Case Name: Download Result</li>
+                        <li>Actor: User</li>
+                        <li>Goal: Downloading result of files as RSS/XML format</li>
+                        <li>Overview: User can download the result details as RSS or XML file format which will be using
+                            for future usage</li>
+                    </p>
+
+                    Typical Course of Actions:
+                    <img src="photo/downloadresult.png" style="width:95%"> <!-- Table 6.0 -->
+                    <p style="font-size:90%"><i>Table 6.0 : Typical Course of Events </i></p>
+
+                    <p>
+                        Exception: <br>
+                        1) User is not connected to the internet so system won’t be able to download the result <br>
+
+
+                    </p>
+
+                    <h4 id="pos4.7">4.7 Logout</h4>
+                    <strong>Stimulus/ Response Sequences</strong>
+                    <p>The following expanded use case shows the response sequences between the actor actions and the
+                        system
+                        responses.
+                        <li>Use Case Name: Logout</li>
+                        <li>Actor: User</li>
+                        <li>Goal: Logout from the system</li>
+                        <li>Overview: Allows user to logout</li>
+                    </p>
+
+                    Typical Course of Actions:
+                    <img src="photo/logout.png" style="width:95%"> <!-- Table 7.0 -->
+                    <p style="font-size:90%"><i>Table 7.0 : Typical Course of Events </i></p>
+                    <p>
+
+                        Exception : <br>
+                        1) If there is no internet connection user can not log out successfully
+
+
+                    </p>
+                    <br>
+                </div>
+
+                <!-- System Feature Ends -->
+
+                <br>
+
+                <!-- Other Nonfunctional Requirements Starts -->
+
+                <div>
+                    <h2 style="color:#10415e;">5. Other Nonfunctional Requirements</h2>
+                    <h4 id="pos5.1">5.1 Performance Requirement</h4>
+                    <p>Based on the Intranet connection, each interface between a user and software must have a suitable
+                        response time.The website’s load time should not be more than one second for users. In case of
+                        crawling from website, this should not take more than 10 hours based on the number of urls in a
+                        single cluster. A notification mail will be send to user when the cluster is ready. The
+                        searching will give the result within less than 5-10 seconds.</p>
+                    <h4 id="pos5.2">5.2 Safety Requirement</h4>
+                    <p>Information should be safely transferred to the server, with no modifications to the data.In our
+                        product,when a user is using the product,one should always use the product with conserning
+                        safety issue.Any Urls,which is designed for not crawling and have some severe consequences can
+                        not be used.</p>
+                    <h4 id="pos5.3">5.3 Security Requirement</h4>
+                    <p>These features are necessary even for stand-alone systems; you don’t want anyone to have access
+                        to your sensitive data. Users personal data and cluster informations will not be accessed by
+                        anyone other than user. All the data will be stored safely.</p>
+                    <h4 id="pos5.4">5.4 Software Quality Attributes</h4>
+                    <h5 id="pos5.4">5.4.1 Availability</h5>
+                    <p>This attribute is indicative as to whether an application will execute the tasks it is assigned
+                        to perform. Availability also
+                        includes certain concepts that relate to software security, performance, integrity, reliability,
+                        dependability, and confidentiality.
+                        In addition, top-notch availability indicates that a software-driven system will repair any
+                        operating faults so that service outage
+                        periods would not exceed a specific time value.</p>
+                    <h5 id="pos5.4">5.4.2 Usability Requirement</h5>
+                    <p>The website’s interface has to be user-friendly and easy to use.</p>
+                    <h4 id="pos5.5">5.5 Business Rules</h4>
+                    <p>Based on the business models, the product will be a freemium product as this is not actually
+                        giving any file ,but this is giving the location of the certain file from where user have to
+                        collect the file by themselves. So, the product will not be able add any extra features for any
+                        kind of subcription</p>
+                    <ul>
+                    </ul>
+                </div>
+                <br>
+
+                <!-- Other Nonfunctional Requirements Ends -->
+
+                <br>
+
+                <!-- Appendix Starts -->
+
+                <div>
+
+                    <h2 id="pos6.1" style="color:#10415e;">6. Appendix</h2>
+                    <h4>Apendix A: Glossary</h4>
+                    <p>Definitions, acronyms, and abbreviations are listed below:</p>
+                    <ul>
+                        <li>User-Someone who interacts with the both web and mobile application</li>
+                        <li>Admin/Administrator-System administrator who is given specific permission for managing and
+                            controlling the system</li>
+                        <li>API-Application Protocol Interface.</li>
+                        <li>Framework-It is like the base of a program that provides generic functionality but can be
+                            custom built for specific purposes.</li>
+                        <li>Backend-The part of an app service that works behind the scenes away from the user's device,
+                            usually in the cloud.</li>
+                    </ul>
+
+                </div>
+
+                <!-- Appendix Ends -->
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+</body>
+
+</html>

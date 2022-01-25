@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="bg-image vh-100" style="background-image: url('/static/white_bg.png');background-size: cover;">
+    <div class="container ">
+        <div class="row " style="padding-top: 60px;height: 120px;">
+            <div class=" col-2 col-sm-1">
+                <img src="/static/logo.png" style="width: 100%; float: left;" alt="">
+            </div>
+            <div class="col-8 col-sm-10 text-left align-self-center">
+
+                <i class="fas fa-user-circle fa-2x"
+                    style="color: #3785E0;vertical-align: middle; justify-content: center;margin-right: 5px;"></i>
+
+                <span style="font-size: larger;vertical-align: middle;font-weight: 600;">
+                    {{ user.email }}
+                </span>
+
+            </div>
+            <div class="col-2 col-sm-1 text-right align-self-center" style="text-align: right;">
+                <a href="{% url 'logout' %}"><button type=" button" class="btn btn-danger ">Logout</button></a>
+            </div>
+
+        </div>
+    </div>
+    <div class=" container">
+
+
+        <div class="row" style="margin-top: 60px;">
+
+            <div class=" col-1"></div>
+            <div class="col-4 text-right" style="border-radius: 10px;">
+                <a href="{% url 'cluster:cluster' %}"><button type="button" class="btn btn-lg btn-primary w-100"
+                        style="color: white;">Cluster</button></a>
+            </div>
+            <div class=" col-2">
+            </div>
+            <div class="col-4 text-left" style="border-radius: 10px;">
+                <a href="{% url 'cluster:search' %}"><button type="button" class="btn btn-lg btn-primary w-100"
+                        style="background-color: white;color: black;">Search</button></a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+        <div class="row" style="padding-top: 60px;">
+
+            <div class="bg-image overflow-auto"
+                style="background: white; height: 600px;border-radius: 10px;box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;">
+                <div class="container">
+                    <div class="row " style="padding-top: 50px;">
+                        <form class="form-horizontal" method="POST" action="">
+                            {% csrf_token %}
+                            <div class="row spacer" style="margin-bottom: 40px;">
+                                <div class="col-2">
+                                    <h4>{{clusterform.name.label}}</h4>
+                                </div>
+                                <div class="col-10">
+                                    <div class="input-group">
+                                        {{clusterform.name}}
+                                    </div>
+                                </div>
+                            </div>
+                            {{ urlformset.management_form }}
+                            {% for form in urlformset %}
+                            <div class="row form-row spacer" style="margin-top: 10px;">
+                                <div class="col-2">
+                                    <h4>{{form.url.label}}</h4>
+                                </div>
+                                <div class="col-10">
+                                    <div class="input-group">
+                                        {{form.url}}
+                                        {{form.depth}}
+                                        {{form.crawling_strategy}}
+                                        <div class="input-group-append">
+                                            <button class="btn btn-success add-form-row">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <div class="row spacer" style="margin-top: 20px;margin-bottom: 50px;">
+                                <div class="col-10">
+
+                                </div>
+                                <div class="col-2">
+                                    <button type="submit" class="btn btn-block btn-primary w-100">Create</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    Your attempt to view this page is <a href="/" class="alert-link">Unauthorized</a>.
+</div>
+{% endif %}
+{% endblock content %}
+
+{% block custom_js %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script type="text/javascript">
+    function updateElementIndex(el, prefix, ndx) {
+        var id_regex = new RegExp('(' + prefix + '-\\d+)');
+        var replacement = prefix + '-' + ndx;
+        if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(id_regex, replacement));
+        if (el.id) el.id = el.id.replace(id_regex, replacement);
+        if (el.name) el.name = el.name.replace(id_regex, replacement);
+    }
+    function cloneMore(selector, prefix) {
+        var newElement = $(selector).clone(true);
+        var total = $('#id_' + prefix + '-TOTAL_FORMS').val();
+        newElement.find(':input:not([type=button]):not([type=submit]):not([type=reset])').each(function () {
+            var name = $(this).attr('name')
+            if (name) {
+                name = name.replace('-' + (total - 1) + '-', '-' + total + '-');
+                var id = 'id_' + name;
+                $(this).attr({ 'name': name, 'id': id }).val('').removeAttr('checked');
+            }
+        });
+        newElement.find('label').each(function () {
+            var forValue = $(this).attr('for');
+            if (forValue) {
+                forValue = forValue.replace('-' + (total - 1) + '-', '-' + total + '-');
+                $(this).attr({ 'for': forValue });
+            }
+        });
+        total++;
+        $('#id_' + prefix + '-TOTAL_FORMS').val(total);
+        $(selector).after(newElement);
+        var conditionRow = $('.form-row:not(:last)');
+        conditionRow.find('.btn.add-form-row')
+            .removeClass('btn-success').addClass('btn-danger')
+            .removeClass('add-form-row').addClass('remove-form-row')
+            .html('-');
+        return false;
+    }
+    function deleteForm(prefix, btn) {
+        var total = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+        if (total > 1) {
+            btn.closest('.form-row').remove();
+            var forms = $('.form-row');
+            $('#id_' + prefix + '-TOTAL_FORMS').val(forms.length);
+            for (var i = 0, formCount = forms.length; i < formCount; i++) {
+                $(forms.get(i)).find(':input').each(function () {
+                    updateElementIndex(this, prefix, i);
+                });
+            }
+        }
+        return false;
+    }
+    $(document).on('click', '.add-form-row', function (e) {
+        e.preventDefault();
+        cloneMore('.form-row:last', 'form');
+        return false;
+    });
+    $(document).on('click', '.remove-form-row', function (e) {
+        e.preventDefault();
+        deleteForm('form', $(this));
+        return false;
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="bg-image vh-100" style="background-image: url('/static/white_bg.png');background-size: cover;">
+    <div class="container ">
+        <div class="row" style="padding-top: 20px;">
+            <div class=" col-2 col-sm-1">
+                <img src="/static/logo.png" style="width: 100%; float: left;" alt="">
+            </div>
+        </div>
+        <div class="row " style="margin-top: 20px;">
+
+            <div class="col-10 col-sm-10 text-left align-self-center">
+                <i class="fas fa-user-circle fa-2x"
+                    style="color: #3785E0;vertical-align: middle; justify-content: center;margin-right: 5px;"></i>
+
+                <span style="font-size: larger;vertical-align: middle;font-weight: 600;">
+                    {{ user.email }}
+                </span>
+
+            </div>
+            <div class="col-2 col-sm-2 text-right align-self-center" style="text-align: right;">
+                <a href="{% url 'logout' %}"><button type=" button" class="btn btn-danger ">Logout</button></a>
+            </div>
+
+        </div>
+    </div>
+    <div class=" container">
+
+
+        <div class="row" style="margin-top: 60px;">
+
+            <div class=" col-1"></div>
+            <div class="col-4 text-right" style="border-radius: 10px;"><a href="{% url 'cluster:cluster' %}"><button
+                        type="button" class="btn btn-lg btn-primary w-100"
+                        style="background-color: white;color: black;">Cluster</button></a>
+
+            </div>
+            <div class=" col-2">
+            </div>
+            <div class="col-4 text-left" style="border-radius: 10px;"><a href="{% url 'cluster:search' %}"><button
+                        type="button" class="btn btn-lg btn-primary w-100" style="color: white;">Search</button></a>
+
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+        <div class="row" style="padding-top: 60px;">
+
+            <div class="bg-image overflow-auto"
+                style="background: white; height: 600px;border-radius: 10px;box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;">
+                <div class="container">
+                    <form class="form-row" method="GET">
+                        {% csrf_token %}
+                        <div class="row" style="margin-top:50px">
+                            <div class="col-1"></div>
+                            <div class="col-5">
+                                <label style="font-size: 25px;">Search Keyword</label>
+                                <div class="input-group w-100">
+                                    {{searchform.keyword}}
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <label style="font-size: 25px;">Choose Cluster</label>
+                                <div class="input-group">
+                                    {{searchform.usercluster}}
+                                </div>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                        <div class="row" style="margin-top: 30px;">
+                            <div class="col-10"></div>
+                            <div class="col-1">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+
+                            <div class="col-1"></div>
+                        </div>
+                    </form>
+                    <div class="row" style="margin-top: 30px;">
+                        <!-- <div class="row">
+                            <div class="d-flex justify-content-center">
+                                <h3 style="text-align: center;">Search Result</h3>
+
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <a href="#"><button type=" button" class="btn btn-danger ">Download</button></a>
+                            </div>
+
+                        </div> -->
+
+
+                        <div class="row" style="margin-top:50px">
+                            <div class="col-12" style="text-align: center;">
+                                <table>
+                                    {% if not file_list %}
+                                    <tr>
+                                        <div class="card w-100" style="margin-bottom: 10px;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">No Data Found</h5>
+                                            </div>
+                                        </div>
+
+                                    </tr>
+                                    {% else %}
+                                    {% for file in file_list %}
+
+                                    <tr>
+                                        <div class="card w-100" style="margin-bottom: 10px;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{keyword}}</h5>
+                                                <p {% if forloop.last %}class="card-text" {% endif %}>{{file.content}}
+                                                </p>
+                                                <a href="{{file.fileurl}}" target="_blank"
+                                                    class="btn btn-primary">{{file.fileurl}}</a>
+                                            </div>
+                                        </div>
+
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                </table>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    Your attempt to view this page is <a href="/" class="alert-link">Unauthorized</a>.
+</div>
+{% endif %}
+{% endblock content %}

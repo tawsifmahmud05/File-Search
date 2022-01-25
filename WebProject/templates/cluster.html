@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="bg-image vh-100" style="background-image: url('/static/white_bg.png');background-size: cover;">
+    <div class="container ">
+        <div class="row" style="padding-top: 20px;">
+            <div class=" col-2 col-sm-1">
+                <img src="/static/logo.png" style="width: 100%; float: left;" alt="">
+            </div>
+        </div>
+        <div class="row " style="margin-top: 20px;">
+
+            <div class="col-10 col-sm-10 text-left align-self-center">
+                <i class="fas fa-user-circle fa-2x"
+                    style="color: #3785E0;vertical-align: middle; justify-content: center;margin-right: 5px;"></i>
+
+                <span style="font-size: larger;vertical-align: middle;font-weight: 600;">
+                    {{ user.email }}
+                </span>
+
+            </div>
+            <div class="col-2 col-sm-2 text-right align-self-center" style="text-align: right;">
+                <a href="{% url 'logout' %}"><button type=" button" class="btn btn-danger ">Logout</button></a>
+            </div>
+
+        </div>
+    </div>
+    <div class=" container">
+
+
+        <div class="row" style="margin-top: 60px;">
+
+            <div class=" col-1"></div>
+            <div class="col-4 text-right" style="border-radius: 10px;"><a href="{% url 'cluster:cluster' %}"><button
+                        type="button" class="btn btn-lg btn-primary w-100" style="color: white;">Cluster</button></a>
+
+            </div>
+            <div class=" col-2">
+            </div>
+            <div class="col-4 text-left" style="border-radius: 10px;"><a href="{% url 'cluster:search' %}"><button
+                        type="button" class="btn btn-lg btn-primary w-100"
+                        style="background-color: white;color: black;">Search</button></a>
+
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+        <div class="row" style="padding-top: 60px;">
+
+            <div class="bg-image overflow-auto"
+                style="background: white; height: 600px;border-radius: 10px;box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;">
+                <div class="container">
+                    <div class="row " style="padding-top: 50px;">
+
+                        <div class="col-1 "></div>
+                        <div class="col-5  text-left">
+                            <h3>My Clusters</h3>
+                        </div>
+                        <div class="col-5  text-right" style="text-align: right;">
+                            <a href="{% url 'cluster:addCluster' %}">
+                                <button type="button" class="btn btn-primary" style="width: 50%;">Add</button></a>
+                        </div>
+                        <div class="col-1 "></div>
+
+                    </div>
+                    <div class="row" style="margin-top:50px">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <table>
+                                {% for cluster in cluster_list %}
+                                <tr>
+                                    <button type="button" class="btn btn-clusterlist  btn-lg"
+                                        style="width: 100%;text-align: left;margin-bottom: 30px;">{{cluster.name}}</button>
+                                </tr>
+                                {% endfor %}
+                            </table>
+
+                        </div>
+                        <div class="col-1"></div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    Your attempt to view this page is <a href="/" class="alert-link">Unauthorized</a>.
+</div>
+{% endif %}
+{% endblock content %}

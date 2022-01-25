@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block styles %}
+{% load socialaccount %}
+
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+{% else %}
+<div class="container-fluid">
+    <div class="row">
+        <div id="image01" class="col-md-8 vh-100"
+            style="background-image: url('/static/Blue_BG.png');background-size: cover;">
+
+            <div class="container d-flex h-100 ">
+
+
+                <h1 class="row justify-content-center align-self-center w-100"
+                    style="font-family: 'Dosis', sans-serif;color:white;font-size: 60px;">
+                    Searching for any file?<br>
+                    Dont know where to find?<br> FileBook is here to help..
+                </h1>
+            </div>
+        </div>
+        <div class=" col-md-4 p-4  left_side" style="height: 100vh;">
+            <img src="/static/logo.png" style="width: 20%; float: right;" alt="">
+
+            <div style="margin-top: 150px;">
+                <h2 style="margin-bottom: 200px;">Login</h2>
+
+
+                <a href="{% provider_login_url 'google' %}"><button class="btn btn-light w-100  "><img
+                            src="/static/icon_google.png" class="image03"><b>Login
+                            with Google</b>
+                    </button></a>
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+{% endif %}
+
+{% endblock content %}

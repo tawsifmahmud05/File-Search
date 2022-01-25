@@ -1,0 +1,8 @@
+.dropdown{
+    position: relative;
+}
+.nav{
+    position: fixed;
+    justify-content: center;
+    display: flex;
+}

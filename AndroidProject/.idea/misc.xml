@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/drawable/blue_btn.xml" value="0.3223684210526316" />
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/drawable/input_box.xml" value="0.3223684210526316" />
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/drawable/red_btn.xml" value="0.18026315789473685" />
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/drawable/spinner_bg.xml" value="0.18640350877192982" />
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/drawable/white_btn.xml" value="0.3223684210526316" />
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/layout/activity_login_screen.xml" value="0.1792717086834734" />
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/layout/activity_search.xml" value="0.25" />
+        <entry key="..\:/CSE327 Project/cse327.2.11/AndroidProject/app/src/main/res/layout/recyclerview_searchresult.xml" value="0.3087719298245614" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/recyclerview_searchresult.xml" value="0.17844202898550723" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
