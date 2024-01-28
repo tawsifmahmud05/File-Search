@@ -1,5 +1,6 @@
 # File Search
-![File](https://github.com/tawsifmahmud05/SmartScrape/assets/85132422/4a249846-76ba-4d71-8150-08f8555b544c)
+![File-removebg-preview](https://github.com/tawsifmahmud05/SmartScrape/assets/85132422/e38a563b-a0ba-4a9a-bf2d-c799d91a4d83)
+
 ## Overview
 
 File Search is a robust document retrieval and management app that simplifies the process of organizing and accessing information. With seamless Google authentication, cluster creation, automated document collection, and Elasticsearch integration, it's the ultimate solution for efficient research and document retrieval.
